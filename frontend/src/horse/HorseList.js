@@ -3,15 +3,26 @@ import {ListGroup} from 'react-bootstrap';
 import HorseItem from './HorseItem';
 
 class HorseList extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            horses: []
+        };
+    }
+
+    componentDidMount() {
+        fetch('http://localhost:3100/api/horse', {mode: 'cors'})
+        .then((response) => response.json())
+        .then((horses) => this.setState({horses}));
+        // this.setState({horses});
+    }
+
     render() {
-        const horses = [
-            {id: 0, name: 'Paulchen', stable: 'Giggenhausen', race: 'Haflinger', dateOfBirth: 2006},
-            {id: 1, name: 'Nino', stable: 'Giggenhausen', race: 'Haflinger', dateOfBirth: 2004},
-            {id: 2, name: 'Ciro', stable: 'Holzerhof', race: 'Freiberger', dateOfBirth: 2008}
-        ];
+        
         return (
             <ListGroup>
-                {horses.map((horse) => {
+                {this.state.horses.map((horse) => {
                     return <HorseItem key={horse.id} horse={horse}/>
                 })}
             </ListGroup>
