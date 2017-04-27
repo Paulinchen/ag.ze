@@ -23,7 +23,7 @@ class HorseList extends React.Component {
         return (
             <ListGroup>
                 {this.state.horses.map((horse) => {
-                    return <HorseItem key={horse.id} horse={horse}/>
+                    return <HorseItem key={horse._id} horse={horse}/>
                 })}
             </ListGroup>
         );
