@@ -37,12 +37,6 @@ horseRouter.route('/:horseid')
             console.log(err);
         }
 
-        // if (horses.find(horse => horse.id == horseid)) {
-        //     res.json(horses.find(horse => horse.id == horseid));
-        // }
-        // else {
-        //     res.send(404, { status: 'Not found' });
-        // }
 });
 
 module.exports = horseRouter;
