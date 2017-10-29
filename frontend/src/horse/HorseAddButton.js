@@ -6,7 +6,7 @@ class HorseAddButton extends React.Component {
     render() {
         return (
             <Link to={`horses/create`}>
-                <Button className="pull-right">Add Horse</Button>
+                <Button bsStyle="primary">Add Horse</Button>
             </Link>
         );
     }

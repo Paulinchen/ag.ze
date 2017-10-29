@@ -6,7 +6,7 @@ class HorseItem extends React.Component {
         const {name, stable, race, dateOfBirth} = this.props.horse;
         return (
             <ListGroupItem header={name}>
-                {race} - {stable} - geboren: {dateOfBirth}
+                {race} - {stable} - geboren: {new Date(dateOfBirth).toDateString()}
             </ListGroupItem>
         );
     }

@@ -19,7 +19,13 @@ horseRouter.route('/')
             console.log(err);
         }
         
-});
+    })
+    .post(function(req, res){
+        const db = req.app.locals.db;
+        console.log(req.body);
+        db.collection('horse').insert(req.body.horse);
+    });
+
 horseRouter.route('/:horseid')
     .get(function (req, res) {
         var horseid = req.params['horseid'];

@@ -1,4 +1,5 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var horseRouter = require('./src/horse/horseRouter');
 var mongoose = require('mongoose');
 
@@ -11,6 +12,7 @@ var app = express()
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
     })
+    .use(bodyParser.json())
     .use('/api/horse', horseRouter);
 
 mongoose.connect('mongodb://127.0.0.1:27017/agze');
